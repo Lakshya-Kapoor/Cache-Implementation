@@ -6,7 +6,7 @@ class Cache:
 
     # Cache_size in kB and block_size in B
     def __init__(self, cache_size, no_of_ways, block_size):
-        self.no_of_cache_lines = int(cache_size * 1024 / block_size*no_of_ways)
+        self.no_of_cache_lines = int(cache_size * 1024 / (block_size*no_of_ways))
         self.byte_offset_bits = int(log2(block_size))
         self.index_bits = int(log2(self.no_of_cache_lines))
         self.tag_bits = 32 - self.byte_offset_bits - self.index_bits
